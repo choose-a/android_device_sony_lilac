@@ -67,17 +67,9 @@ PRODUCT_PACKAGES += \
     init.recovery.lilac \
     init.lilac
 
-# Lights
-PRODUCT_PACKAGES += \
-    lights.lilac
-
 # Simple PowerHAL
 PRODUCT_PACKAGES += \
     power.lilac
-
-# Fingerprint HAL
-PRODUCT_PACKAGES += \
-    fingerprint.lilac
 
 # NFC config
 PRODUCT_PACKAGES += \
