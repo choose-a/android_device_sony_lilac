@@ -14,7 +14,15 @@
 
 include device/sony/yoshino-common/PlatformConfig.mk
 
-TARGET_BOOTLOADER_BOARD_NAME := yoshino
+TARGET_BOOTLOADER_BOARD_NAME := unknown
+ifneq (,$(filter %g8441,$(TARGET_PRODUCT)))
+TARGET_BOOTLOADER_BOARD_NAME := G8441
+else
+$(error Unrecognized value for TARGET_PRODUCT: "$(TARGET_PRODUCT)")
+endif
+
+# Platform
+PRODUCT_PLATFORM := yoshino
 
 # NFC
 NXP_CHIP_TYPE := PN553
@@ -34,5 +42,6 @@ TARGET_COPY_OUT_VENDOR := vendor
 BOARD_VENDORIMAGE_PARTITION_SIZE := 1610612736
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_ROOT_EXTRA_SYMLINKS := /vendor/lib/dsp:/dsp
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
 #TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/clearpad/wakeup_gesture"
